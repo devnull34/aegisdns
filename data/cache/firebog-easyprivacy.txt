@@ -1,0 +1,8 @@
+analytics.google.com
+hotjar.com
+crazyegg.com
+clarity.ms
+fullstory.com
+mouseflow.com
+scorecardresearch.com
+quantserve.com

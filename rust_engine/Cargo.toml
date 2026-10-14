@@ -1,0 +1,18 @@
+[package]
+name = "aegisdns"
+version = "1.0.0"
+edition = "2021"
+authors = ["AegisDNS Maintainers"]
+description = "High-performance Rust DNS blocklist curator & deduplicator for AdGuard Home"
+
+[dependencies]
+axum = { version = "0.8", features = ["macros"] }
+tokio = { version = "1.43", features = ["full"] }
+tower-http = { version = "0.6", features = ["fs", "cors", "trace"] }
+reqwest = { version = "0.12", default-features = false, features = ["rustls-tls"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+tracing = "0.1"
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+hashbrown = "0.15"

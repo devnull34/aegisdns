@@ -1,0 +1,6 @@
+{
+  "name": "AegisDNS - Master Blocklist Curator",
+  "description": "High-performance DNS blocklist aggregator, deduplicator, cache pre-warmer, and DNS Recommendation Engine with GeoIP distance topology map for AdGuard Home.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
