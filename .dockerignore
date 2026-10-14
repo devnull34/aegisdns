@@ -1,0 +1,43 @@
+# Git and repository metadata (crucial for private repos to avoid leaking git history/tokens)
+.git
+.github
+.gitignore
+
+# Environment and secrets (prevents baking local secrets or API keys into Docker layers)
+.env
+.env.*
+!.env.example
+
+# Local dependencies and build artifacts
+node_modules
+dist
+build
+coverage
+
+# Rust build target cache
+target
+rust_engine/target
+
+# Local application persistent data and caches
+data/*.json
+data/cache
+data/storage
+
+# IDE and OS files
+.vscode
+.idea
+.aistudio
+.DS_Store
+*.swp
+*.swo
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Docker files
+Dockerfile*
+docker-compose*.yml

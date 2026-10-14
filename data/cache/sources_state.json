@@ -10,14 +10,14 @@
       "description": "Comprehensive protection against advertising, tracking, telemetry, scam, fake shops, and spam.",
       "maintainer": "Hägezi",
       "homepage": "https://github.com/hagezi/dns-blocklists",
-      "domainCount": 195513,
+      "domainCount": 194298,
       "lastUpdated": "2026-10-14T11:16:04.586Z",
       "lastDownloaded": "2026-10-14T11:16:04.586Z",
       "lastStatus": "ok",
       "isPreset": true,
-      "cacheSizeBytes": 4293887,
+      "cacheSizeBytes": 4266598,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (195,513 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (194,298 domains, valid for 1.1h per schedule)"
     },
     {
       "id": "hagezi-light",
@@ -34,9 +34,9 @@
       "lastDownloaded": "2026-10-14T11:16:05.452Z",
       "lastStatus": "ok",
       "isPreset": true,
-      "cacheSizeBytes": 1394629,
+      "cacheSizeBytes": 1364428,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (0 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (0 domains, valid for 1.1h per schedule)"
     },
     {
       "id": "hagezi-ultimate",
@@ -49,13 +49,13 @@
       "maintainer": "Hägezi",
       "homepage": "https://github.com/hagezi/dns-blocklists",
       "domainCount": 232988,
-      "lastUpdated": "2026-10-14T11:16:06.407Z",
-      "lastDownloaded": "2026-10-14T11:16:06.407Z",
+      "lastUpdated": "2026-10-14T15:52:49.652Z",
+      "lastDownloaded": "2026-10-14T15:52:49.652Z",
       "lastStatus": "ok",
       "isPreset": true,
       "cacheSizeBytes": 5150063,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (0 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (0 domains, valid for 5.7h per schedule)"
     },
     {
       "id": "hagezi-tif",
@@ -68,13 +68,13 @@
       "maintainer": "Hägezi",
       "homepage": "https://github.com/hagezi/dns-blocklists",
       "domainCount": 1946216,
-      "lastUpdated": "2026-10-14T11:16:18.482Z",
-      "lastDownloaded": "2026-10-14T11:16:18.482Z",
+      "lastUpdated": "2026-10-14T15:52:55.022Z",
+      "lastDownloaded": "2026-10-14T15:52:55.022Z",
       "lastStatus": "ok",
       "isPreset": true,
       "cacheSizeBytes": 39773273,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (1,946,216 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (1,946,216 domains, valid for 5.7h per schedule)"
     },
     {
       "id": "hagezi-dyndns",
@@ -93,7 +93,7 @@
       "isPreset": true,
       "cacheSizeBytes": 24864,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (0 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (0 domains, valid for 1.1h per schedule)"
     },
     {
       "id": "hagezi-gambling",
@@ -110,9 +110,9 @@
       "lastDownloaded": "2026-10-14T11:16:36.761Z",
       "lastStatus": "ok",
       "isPreset": true,
-      "cacheSizeBytes": 12006660,
+      "cacheSizeBytes": 11928885,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (0 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (0 domains, valid for 1.1h per schedule)"
     },
     {
       "id": "oisd-big",
@@ -124,14 +124,14 @@
       "description": "High-reputation curated DNS blocklist with exhaustive ad and telemetry coverage and near-zero false positive rate.",
       "maintainer": "Stephan (OISD)",
       "homepage": "https://oisd.nl",
-      "domainCount": 237636,
-      "lastUpdated": "2026-10-14T11:16:47.076Z",
-      "lastDownloaded": "2026-10-14T11:16:47.076Z",
+      "domainCount": 237797,
+      "lastUpdated": "2026-10-14T15:53:08.564Z",
+      "lastDownloaded": "2026-10-14T15:53:08.564Z",
       "lastStatus": "ok",
       "isPreset": true,
-      "cacheSizeBytes": 5452218,
+      "cacheSizeBytes": 5455684,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (237,636 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (237,797 domains, valid for 5.7h per schedule)"
     },
     {
       "id": "oisd-small",
@@ -144,13 +144,13 @@
       "maintainer": "Stephan (OISD)",
       "homepage": "https://oisd.nl",
       "domainCount": 56670,
-      "lastUpdated": "2026-10-14T11:16:58.582Z",
-      "lastDownloaded": "2026-10-14T11:16:58.582Z",
+      "lastUpdated": "2026-10-14T15:53:23.279Z",
+      "lastDownloaded": "2026-10-14T15:53:23.279Z",
       "lastStatus": "ok",
       "isPreset": true,
       "cacheSizeBytes": 1275570,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (0 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (0 domains, valid for 5.7h per schedule)"
     },
     {
       "id": "oisd-nsfw",
@@ -162,14 +162,14 @@
       "description": "Dedicated adult content and NSFW domain filter maintained with the OISD curation pipeline.",
       "maintainer": "Stephan (OISD)",
       "homepage": "https://oisd.nl",
-      "domainCount": 472913,
-      "lastUpdated": "2026-10-14T11:17:11.561Z",
-      "lastDownloaded": "2026-10-14T11:17:11.561Z",
+      "domainCount": 471434,
+      "lastUpdated": "2026-10-14T15:53:36.158Z",
+      "lastDownloaded": "2026-10-14T15:53:36.158Z",
       "lastStatus": "ok",
       "isPreset": true,
-      "cacheSizeBytes": 9817353,
+      "cacheSizeBytes": 9788065,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (0 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (0 domains, valid for 5.7h per schedule)"
     },
     {
       "id": "steven-black",
@@ -181,14 +181,14 @@
       "description": "The premier consolidated multi-source hosts file combining reputable threat feeds, malware, and adware domains.",
       "maintainer": "Steven Black",
       "homepage": "https://github.com/StevenBlack/hosts",
-      "domainCount": 72522,
+      "domainCount": 88,
       "lastUpdated": "2026-10-14T11:17:11.791Z",
       "lastDownloaded": "2026-10-14T11:17:11.791Z",
       "lastStatus": "ok",
       "isPreset": true,
-      "cacheSizeBytes": 2229037,
+      "cacheSizeBytes": 1285,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (72,522 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (88 domains, valid for 1.1h per schedule)"
     },
     {
       "id": "steven-black-social",
@@ -201,13 +201,13 @@
       "maintainer": "Steven Black",
       "homepage": "https://github.com/StevenBlack/hosts",
       "domainCount": 76732,
-      "lastUpdated": "2026-10-14T11:17:11.962Z",
-      "lastDownloaded": "2026-10-14T11:17:11.962Z",
+      "lastUpdated": "2026-10-14T15:53:36.399Z",
+      "lastDownloaded": "2026-10-14T15:53:36.399Z",
       "lastStatus": "ok",
       "isPreset": true,
       "cacheSizeBytes": 2375397,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (0 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (0 domains, valid for 5.7h per schedule)"
     },
     {
       "id": "steven-black-fakenews",
@@ -220,13 +220,13 @@
       "maintainer": "Steven Black",
       "homepage": "https://github.com/StevenBlack/hosts",
       "domainCount": 75143,
-      "lastUpdated": "2026-10-14T11:17:21.603Z",
-      "lastDownloaded": "2026-10-14T11:17:21.603Z",
+      "lastUpdated": "2026-10-14T15:53:36.616Z",
+      "lastDownloaded": "2026-10-14T15:53:36.616Z",
       "lastStatus": "ok",
       "isPreset": true,
       "cacheSizeBytes": 2304356,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (0 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (0 domains, valid for 5.7h per schedule)"
     },
     {
       "id": "adguard-base",
@@ -259,13 +259,13 @@
       "maintainer": "AdGuard Team",
       "homepage": "https://adguard.com",
       "domainCount": 114945,
-      "lastUpdated": "2026-10-14T11:17:32.252Z",
-      "lastDownloaded": "2026-10-14T11:17:32.252Z",
+      "lastUpdated": "2026-10-14T15:53:37.463Z",
+      "lastDownloaded": "2026-10-14T15:53:37.463Z",
       "lastStatus": "ok",
       "isPreset": true,
-      "cacheSizeBytes": 11849995,
+      "cacheSizeBytes": 11850149,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (0 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (0 domains, valid for 5.7h per schedule)"
     },
     {
       "id": "adguard-url-tracking",
@@ -278,13 +278,13 @@
       "maintainer": "AdGuard Team",
       "homepage": "https://adguard.com",
       "domainCount": 793,
-      "lastUpdated": "2026-10-14T11:17:42.192Z",
-      "lastDownloaded": "2026-10-14T11:17:42.192Z",
+      "lastUpdated": "2026-10-14T15:53:47.789Z",
+      "lastDownloaded": "2026-10-14T15:53:47.789Z",
       "lastStatus": "ok",
       "isPreset": true,
       "cacheSizeBytes": 189133,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (0 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (0 domains, valid for 5.7h per schedule)"
     },
     {
       "id": "dan-pollock",
@@ -296,14 +296,14 @@
       "description": "The historic and battle-tested someonewhocares hosts list maintained continuously since the 2000s.",
       "maintainer": "Dan Pollock",
       "homepage": "https://someonewhocares.org",
-      "domainCount": 128,
-      "lastUpdated": "2026-10-14T11:17:53.707Z",
-      "lastDownloaded": "2026-10-14T11:17:53.707Z",
+      "domainCount": 129,
+      "lastUpdated": "2026-10-14T15:53:58.201Z",
+      "lastDownloaded": "2026-10-14T15:53:58.201Z",
       "lastStatus": "ok",
       "isPreset": true,
-      "cacheSizeBytes": 2624,
+      "cacheSizeBytes": 2642,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (0 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (0 domains, valid for 5.7h per schedule)"
     },
     {
       "id": "peter-lowe",
@@ -316,13 +316,13 @@
       "maintainer": "Peter Lowe",
       "homepage": "https://pgl.yoyo.org/adservers/",
       "domainCount": 102239,
-      "lastUpdated": "2026-10-14T11:18:06.180Z",
-      "lastDownloaded": "2026-10-14T11:18:06.180Z",
+      "lastUpdated": "2026-10-14T15:54:09.587Z",
+      "lastDownloaded": "2026-10-14T15:54:09.587Z",
       "lastStatus": "ok",
       "isPreset": true,
       "cacheSizeBytes": 2346984,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (0 domains, valid for 6.0h per schedule)"
+      "statusMessage": "Cached locally on disk (0 domains, valid for 5.7h per schedule)"
     },
     {
       "id": "urlhaus-abuse",
@@ -335,13 +335,13 @@
       "maintainer": "abuse.ch",
       "homepage": "https://urlhaus.abuse.ch",
       "domainCount": 6086,
-      "lastUpdated": "2026-10-14T11:18:13.596Z",
-      "lastDownloaded": "2026-10-14T11:18:13.596Z",
+      "lastUpdated": "2026-10-14T15:54:20.303Z",
+      "lastDownloaded": "2026-10-14T15:54:20.303Z",
       "lastStatus": "ok",
       "isPreset": true,
       "cacheSizeBytes": 163295,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (6,086 domains, valid for 6h per schedule)"
+      "statusMessage": "Cached locally on disk (0 domains, valid for 5.7h per schedule)"
     },
     {
       "id": "goodbye-ads",
@@ -354,13 +354,13 @@
       "maintainer": "Jerryn70",
       "homepage": "https://github.com/jerryn70/GoodbyeAds",
       "domainCount": 277739,
-      "lastUpdated": "2026-10-14T11:18:14.829Z",
-      "lastDownloaded": "2026-10-14T11:18:14.829Z",
+      "lastUpdated": "2026-10-14T15:54:31.490Z",
+      "lastDownloaded": "2026-10-14T15:54:31.490Z",
       "lastStatus": "ok",
       "isPreset": true,
       "cacheSizeBytes": 9086745,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (277,739 domains, valid for 6h per schedule)"
+      "statusMessage": "Cached locally on disk (0 domains, valid for 5.7h per schedule)"
     },
     {
       "id": "onehosts-lite",
@@ -373,13 +373,13 @@
       "maintainer": "badmojr",
       "homepage": "https://github.com/badmojr/1Hosts",
       "domainCount": 102239,
-      "lastUpdated": "2026-10-14T11:18:25.733Z",
-      "lastDownloaded": "2026-10-14T11:18:25.733Z",
+      "lastUpdated": "2026-10-14T15:54:41.210Z",
+      "lastDownloaded": "2026-10-14T15:54:41.210Z",
       "lastStatus": "ok",
       "isPreset": true,
       "cacheSizeBytes": 2041076,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (102,239 domains, valid for 6h per schedule)"
+      "statusMessage": "Cached locally on disk (102,239 domains, valid for 5.7h per schedule)"
     },
     {
       "id": "adguard-dns-official",
@@ -391,14 +391,14 @@
       "description": "AdGuard official primary DNS filter composed of several filters optimized specifically for mobile and desktop DNS-level ad blocking.",
       "maintainer": "AdGuard Team",
       "homepage": "https://github.com/AdguardTeam/AdguardFilters",
-      "domainCount": 183554,
-      "lastUpdated": "2026-10-14T11:18:35.991Z",
-      "lastDownloaded": "2026-10-14T11:18:35.991Z",
+      "domainCount": 183607,
+      "lastUpdated": "2026-10-14T15:54:52.816Z",
+      "lastDownloaded": "2026-10-14T15:54:52.816Z",
       "lastStatus": "ok",
       "isPreset": true,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (183,554 domains, valid for 6h per schedule)",
-      "cacheSizeBytes": 4419770
+      "statusMessage": "Cached locally on disk (183,607 domains, valid for 5.7h per schedule)",
+      "cacheSizeBytes": 4420983
     },
     {
       "id": "phishing-army",
@@ -410,14 +410,14 @@
       "description": "Continuously validated, open-source phishing URL intelligence feed identifying active financial, credential, and brand impersonation attacks.",
       "maintainer": "Phishing Army",
       "homepage": "https://phishing.army",
-      "domainCount": 159548,
-      "lastUpdated": "2026-10-14T11:18:46.641Z",
-      "lastDownloaded": "2026-10-14T11:18:46.641Z",
+      "domainCount": 159164,
+      "lastUpdated": "2026-10-14T15:55:05.803Z",
+      "lastDownloaded": "2026-10-14T15:55:05.803Z",
       "lastStatus": "ok",
       "isPreset": true,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (159,548 domains, valid for 6h per schedule)",
-      "cacheSizeBytes": 3488898
+      "statusMessage": "Cached locally on disk (159,164 domains, valid for 5.8h per schedule)",
+      "cacheSizeBytes": 3481799
     },
     {
       "id": "phishtank-openphish",
@@ -435,7 +435,7 @@
       "lastStatus": "ok",
       "isPreset": true,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (32,584 domains, valid for 6h per schedule)",
+      "statusMessage": "Cached locally on disk (32,584 domains, valid for 1.2h per schedule)",
       "cacheSizeBytes": 1026708
     },
     {
@@ -454,7 +454,7 @@
       "lastStatus": "ok",
       "isPreset": true,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (347 domains, valid for 6h per schedule)",
+      "statusMessage": "Cached locally on disk (0 domains, valid for 1.2h per schedule)",
       "cacheSizeBytes": 12383
     },
     {
@@ -473,7 +473,7 @@
       "lastStatus": "ok",
       "isPreset": true,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (312 domains, valid for 6h per schedule)",
+      "statusMessage": "Cached locally on disk (0 domains, valid for 1.2h per schedule)",
       "cacheSizeBytes": 8150
     },
     {
@@ -486,14 +486,14 @@
       "description": "Clean domains-only extract of EasyPrivacy tracker definitions maintained under the Firebog non-breaking collection.",
       "maintainer": "Firebog / EasyList",
       "homepage": "https://firebog.net",
-      "domainCount": 43196,
-      "lastUpdated": "2026-10-14T11:19:20.793Z",
-      "lastDownloaded": "2026-10-14T11:19:20.793Z",
+      "domainCount": 43203,
+      "lastUpdated": "2026-10-14T15:55:18.724Z",
+      "lastDownloaded": "2026-10-14T15:55:18.724Z",
       "lastStatus": "ok",
       "isPreset": true,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (43,196 domains, valid for 6h per schedule)",
-      "cacheSizeBytes": 945507
+      "statusMessage": "Cached locally on disk (0 domains, valid for 5.8h per schedule)",
+      "cacheSizeBytes": 945622
     },
     {
       "id": "firebog-malware",
@@ -505,14 +505,14 @@
       "description": "High-confidence automated malware command-and-control drop zones curated by security researcher Prigent.",
       "maintainer": "Vincent Prigent / Firebog",
       "homepage": "https://firebog.net",
-      "domainCount": 240436,
-      "lastUpdated": "2026-10-14T11:19:32.461Z",
-      "lastDownloaded": "2026-10-14T11:19:32.461Z",
+      "domainCount": 240082,
+      "lastUpdated": "2026-10-14T15:55:31.712Z",
+      "lastDownloaded": "2026-10-14T15:55:31.712Z",
       "lastStatus": "ok",
       "isPreset": true,
       "isPreloaded": true,
-      "statusMessage": "Cached locally on disk (240,436 domains, valid for 6h per schedule)",
-      "cacheSizeBytes": 4627187
+      "statusMessage": "Cached locally on disk (0 domains, valid for 5.8h per schedule)",
+      "cacheSizeBytes": 4622558
     }
   ],
   "settings": {
@@ -520,7 +520,7 @@
     "autoSyncIntervalHours": 6,
     "updateOnStartup": true,
     "lastAutoSync": "2026-10-13T12:46:57.921Z",
-    "nextAutoSync": "2026-10-14T17:18:11.974Z",
+    "nextAutoSync": "2026-10-14T22:09:56.008Z",
     "outputFormat": "adguard",
     "whitelist": [
       "apple.com",
@@ -529,7 +529,8 @@
       "github.com"
     ],
     "stripSubdomains": true,
-    "enableIpv6": true
+    "enableIpv6": false,
+    "upstreamDns": "192.168.1.1"
   },
-  "lastSaved": "2026-10-14T11:20:27.043Z"
+  "lastSaved": "2026-10-14T16:10:29.193Z"
 }

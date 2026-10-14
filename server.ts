@@ -98,6 +98,7 @@ import {
   runAllBenchmarks,
   runDnsLeakTest,
 } from './src/server/dnsTools';
+import { majesticManager } from './src/server/majesticManager';
 
 // Master Blocklist Raw Endpoint with on-the-fly Format Conversion
 const serveMaster = (req: Request, res: Response) => {
@@ -272,6 +273,32 @@ app.post('/api/dns/precache/resume', (_req: Request, res: Response) => {
 app.post('/api/dns/precache/stop', (_req: Request, res: Response) => {
   precacheEngine.stop();
   res.json(precacheEngine.getStatus());
+});
+
+// Majestic Million Top Domains API
+app.get('/api/dns/majestic/status', (_req: Request, res: Response) => {
+  res.json(majesticManager.getStatus());
+});
+
+app.post('/api/dns/majestic/sync', async (req: Request, res: Response) => {
+  try {
+    const { maxDomains } = req.body || {};
+    const result = await majesticManager.fetchAndCacheMajesticMillion(true, maxDomains || 50000);
+    res.json({
+      ...result,
+      status: majesticManager.getStatus(),
+    });
+  } catch (err: any) {
+    res.status(500).json({ error: err.message });
+  }
+});
+
+app.put('/api/dns/majestic/config', (req: Request, res: Response) => {
+  const { updateIntervalDays } = req.body || {};
+  if (typeof updateIntervalDays === 'number') {
+    majesticManager.setUpdateInterval(updateIntervalDays);
+  }
+  res.json(majesticManager.getStatus());
 });
 
 async function startServer() {

@@ -2,14 +2,19 @@ import React, { useState, useEffect } from 'react';
 import {
   Activity,
   ArrowRight,
+  Calendar,
   CheckCircle,
+  Clock,
   Database,
+  ExternalLink,
   Flame,
   Globe2,
+  HardDrive,
   Network,
   Pause,
   Play,
   Radio,
+  RefreshCw,
   Server,
   ShieldCheck,
   Sparkles,
@@ -23,6 +28,8 @@ export const PrecacheTab: React.FC = () => {
   const [targetSize, setTargetSize] = useState<number>(10000);
   const [targetServer, setTargetServer] = useState<string>('192.168.1.1');
   const [status, setStatus] = useState<PrecacheStatus | null>(null);
+  const [isSyncingMajestic, setIsSyncingMajestic] = useState<boolean>(false);
+  const [majesticSuccessMsg, setMajesticSuccessMsg] = useState<string | null>(null);
 
   // Fetch settings on mount to load user's configured upstream DNS (defaults to 192.168.1.1)
   useEffect(() => {
@@ -112,6 +119,30 @@ export const PrecacheTab: React.FC = () => {
       if (res.ok) setStatus(await res.json());
     } catch (err) {
       console.error(err);
+    }
+  };
+
+  const handleSyncMajestic = async () => {
+    setIsSyncingMajestic(true);
+    setMajesticSuccessMsg(null);
+    try {
+      const res = await fetch('/api/dns/majestic/sync', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ maxDomains: 50000 }),
+      });
+      if (res.ok) {
+        const data = await res.json();
+        if (data.status) {
+          setStatus((prev) => (prev ? { ...prev, majesticStatus: data.status } : prev));
+        }
+        setMajesticSuccessMsg(`Refreshed ${data.count?.toLocaleString() || 'top'} domains from Majestic Million!`);
+        setTimeout(() => setMajesticSuccessMsg(null), 5000);
+      }
+    } catch (err) {
+      console.error('Error syncing Majestic Million:', err);
+    } finally {
+      setIsSyncingMajestic(false);
     }
   };
 
@@ -368,6 +399,152 @@ export const PrecacheTab: React.FC = () => {
         </div>
       </div>
 
+      {/* Majestic Million Local Cache & Weekly Schedule Panel */}
+      <div className="p-6 rounded-xl bg-[var(--bg-surface)] border border-[var(--border-color)] shadow-sm space-y-4">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-start gap-3">
+            <div className="w-9 h-9 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-500 shrink-0 mt-0.5">
+              <Globe2 className="w-5 h-5" />
+            </div>
+            <div>
+              <div className="flex flex-wrap items-center gap-2">
+                <h3 className="text-sm font-bold text-[var(--text-primary)]">
+                  Majestic Million Verified Domains Pool
+                </h3>
+                <span className="text-[10px] font-mono font-semibold px-2 py-0.5 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 flex items-center gap-1">
+                  <Calendar className="w-3 h-3" />
+                  Weekly Auto-Update (Default)
+                </span>
+                <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[var(--bg-surface-secondary)] text-[var(--text-secondary)] border border-[var(--border-color)] flex items-center gap-1">
+                  <HardDrive className="w-3 h-3 text-sky-400" />
+                  Bundled &amp; Cached Locally
+                </span>
+              </div>
+              <p className="text-xs text-[var(--text-secondary)] mt-1">
+                Sourced from{' '}
+                <a
+                  href="https://downloads.majestic.com/majestic_million.csv"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[var(--color-adguard)] hover:underline inline-flex items-center gap-0.5 font-mono"
+                >
+                  downloads.majestic.com/majestic_million.csv
+                  <ExternalLink className="w-3 h-3" />
+                </a>
+                . Cached locally on disk (<code className="text-[11px] font-mono text-[var(--text-primary)] bg-[var(--bg-surface-secondary)] px-1 rounded">data/majestic_million.csv</code>) and bundled with the software for instant offline pre-warming.
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-3 shrink-0">
+            <button
+              onClick={handleSyncMajestic}
+              disabled={isSyncingMajestic}
+              className="flex items-center gap-2 px-4 py-2 text-xs font-semibold text-[var(--text-primary)] bg-[var(--bg-surface-secondary)] border border-[var(--border-color)] hover:bg-[var(--bg-surface-hover)] disabled:opacity-50 rounded-lg transition-colors cursor-pointer"
+              title="Force weekly update from downloads.majestic.com/majestic_million.csv"
+            >
+              <RefreshCw className={`w-3.5 h-3.5 ${isSyncingMajestic ? 'animate-spin text-[var(--color-adguard)]' : ''}`} />
+              <span>{isSyncingMajestic ? 'Updating Cache...' : 'Sync Weekly List Now'}</span>
+            </button>
+          </div>
+        </div>
+
+        {majesticSuccessMsg && (
+          <div className="p-3 rounded-lg bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs flex items-center gap-2">
+            <CheckCircle className="w-4 h-4 shrink-0" />
+            <span>{majesticSuccessMsg}</span>
+          </div>
+        )}
+
+        {/* Status Metrics Bento */}
+        <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-xs pt-1">
+          <div className="p-3 rounded-lg bg-[var(--bg-surface-secondary)] border border-[var(--border-color)]">
+            <span className="text-[10px] font-mono uppercase text-[var(--text-muted)] block mb-1">
+              Cached Domains
+            </span>
+            <span className="text-base font-bold text-[var(--text-primary)] font-mono tabular-nums">
+              {(status?.majesticStatus?.totalDomains || 25000).toLocaleString()}
+            </span>
+            <span className="text-[10px] text-[var(--text-muted)] block mt-0.5">
+              Rank #1 to #1,000,000
+            </span>
+          </div>
+
+          <div className="p-3 rounded-lg bg-[var(--bg-surface-secondary)] border border-[var(--border-color)]">
+            <span className="text-[10px] font-mono uppercase text-[var(--text-muted)] block mb-1">
+              Update Frequency
+            </span>
+            <span className="text-base font-bold text-emerald-500 font-mono">
+              Weekly (7d)
+            </span>
+            <span className="text-[10px] text-[var(--text-muted)] block mt-0.5">
+              Default automated cron
+            </span>
+          </div>
+
+          <div className="p-3 rounded-lg bg-[var(--bg-surface-secondary)] border border-[var(--border-color)]">
+            <span className="text-[10px] font-mono uppercase text-[var(--text-muted)] block mb-1">
+              Last Cache Sync
+            </span>
+            <span className="text-xs font-semibold text-[var(--text-primary)] block truncate">
+              {status?.majesticStatus?.lastUpdated
+                ? new Date(status.majesticStatus.lastUpdated).toLocaleDateString(undefined, {
+                    month: 'short',
+                    day: 'numeric',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                  })
+                : 'Bundled with Software'}
+            </span>
+            <span className="text-[10px] text-[var(--text-muted)] block mt-0.5">
+              Local file timestamp
+            </span>
+          </div>
+
+          <div className="p-3 rounded-lg bg-[var(--bg-surface-secondary)] border border-[var(--border-color)]">
+            <span className="text-[10px] font-mono uppercase text-[var(--text-muted)] block mb-1">
+              Next Weekly Sync
+            </span>
+            <span className="text-xs font-semibold text-sky-400 block truncate">
+              {status?.majesticStatus?.nextUpdateDue
+                ? new Date(status.majesticStatus.nextUpdateDue).toLocaleDateString(undefined, {
+                    month: 'short',
+                    day: 'numeric',
+                  })
+                : 'In 7 days'}
+            </span>
+            <span className="text-[10px] text-[var(--text-muted)] block mt-0.5">
+              Automated background poll
+            </span>
+          </div>
+        </div>
+
+        {/* Top Sample Domains Preview */}
+        <div className="pt-2 border-t border-[var(--border-color)] flex flex-wrap items-center gap-2 text-xs">
+          <span className="text-[11px] font-mono text-[var(--text-muted)] shrink-0 flex items-center gap-1">
+            <Flame className="w-3.5 h-3.5 text-amber-500" />
+            Top Ranked Domains Preview:
+          </span>
+          {(status?.majesticStatus?.topSample || [
+            'google.com',
+            'facebook.com',
+            'youtube.com',
+            'instagram.com',
+            'twitter.com',
+            'linkedin.com',
+            'apple.com',
+            'googletagmanager.com',
+          ]).map((dom, i) => (
+            <span
+              key={dom}
+              className="px-2 py-0.5 text-[11px] font-mono rounded bg-[var(--bg-surface-secondary)] border border-[var(--border-color)] text-[var(--text-secondary)]"
+            >
+              #{i + 1} {dom}
+            </span>
+          ))}
+        </div>
+      </div>
+
       {/* Progress & Live Cache Proof Grid */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Main Progress Bar & Counters */}
@@ -412,9 +589,14 @@ export const PrecacheTab: React.FC = () => {
                 {status?.currentDomain || 'Ready to start pre-caching'}
               </span>
             </div>
-            <span className="text-[var(--color-adguard)] shrink-0 font-sans text-[11px] font-semibold tabular-nums">
-              {status?.queriesPerSec || 0} qps
-            </span>
+            <div className="flex items-center gap-2 shrink-0">
+              <span className="text-[10px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/20 hidden sm:inline-block">
+                Majestic Million Top List
+              </span>
+              <span className="text-[var(--color-adguard)] font-sans text-[11px] font-semibold tabular-nums">
+                {status?.queriesPerSec || 0} qps
+              </span>
+            </div>
           </div>
 
           {/* Key Metrics Strip */}

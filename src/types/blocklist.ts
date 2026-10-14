@@ -93,6 +93,7 @@ export interface AppSettings {
   stripSubdomains: boolean;
   enableIpv6: boolean;
   upstreamDns?: string;
+  distanceUnit?: 'imperial' | 'metric';
 }
 
 export interface DomainCheckResult {
@@ -111,6 +112,19 @@ export interface DomainCheckResult {
 
 export type DnsProtocol = 'regular' | 'https' | 'tls' | 'quic';
 
+export interface DnsSecurityOption {
+  id: string;
+  name: string;
+  category: 'standard' | 'security' | 'family' | 'unfiltered';
+  ip: string;
+  ipv6?: string;
+  dohUrl?: string;
+  dotHost?: string;
+  doqHost?: string;
+  description: string;
+  isDefault?: boolean;
+}
+
 export interface UpstreamDnsServer {
   id: string;
   name: string;
@@ -123,6 +137,7 @@ export interface UpstreamDnsServer {
   isFilter: boolean;
   defaultPort: number;
   description: string;
+  securityOptions?: DnsSecurityOption[];
 }
 
 export interface DnsBenchmarkResult {
@@ -139,6 +154,7 @@ export interface DnsBenchmarkResult {
   isFastest: boolean;
   testedAt: string;
   error?: string;
+  securityOptions?: DnsSecurityOption[];
 }
 
 export interface DnsLeakCheckServer {
@@ -248,6 +264,20 @@ export interface PrecacheStatus {
   proofStats: PrecacheProofStats;
   startedAt: string | null;
   completedAt: string | null;
+  majesticStatus?: MajesticStatus;
+}
+
+export interface MajesticStatus {
+  sourceUrl: string;
+  lastUpdated: string | null;
+  nextUpdateDue: string | null;
+  updateIntervalDays: number;
+  totalDomains: number;
+  cacheFilePath: string;
+  isUpdating: boolean;
+  lastError: string | null;
+  source: 'bundled_software_cache' | 'live_weekly_sync';
+  topSample: string[];
 }
 
 // ==========================================

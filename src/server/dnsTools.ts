@@ -18,7 +18,9 @@ import {
   DnsServerGeoData,
   DnsRecommendationResult,
   DnsServerFeatures,
+  MajesticStatus,
 } from '../types/blocklist';
+import { majesticManager } from './majesticManager';
 
 // Known Public DNS servers provided by AdGuard Home & official DNS providers
 export const KNOWN_UPSTREAM_SERVERS: UpstreamDnsServer[] = [
@@ -983,8 +985,14 @@ class DnsPrecacheEngine {
     this.generateDomainsPool();
   }
 
-  // Generate top 1M representative domains pool (Tranco / Umbrella top list)
+  // Populate domain pool from Majestic Million (https://downloads.majestic.com/majestic_million.csv)
   private generateDomainsPool() {
+    const majesticDomains = majesticManager.getDomains();
+    if (majesticDomains && majesticDomains.length > 0) {
+      this.domainsPool = majesticDomains;
+      return;
+    }
+
     const popularRoots = [
       'google.com', 'youtube.com', 'facebook.com', 'amazon.com', 'wikipedia.org',
       'twitter.com', 'x.com', 'instagram.com', 'linkedin.com', 'apple.com',
@@ -994,38 +1002,16 @@ class DnsPrecacheEngine {
       'cnn.com', 'nytimes.com', 'bbc.co.uk', 'reuters.com', 'theguardian.com',
       'wordpress.org', 'adobe.com', 'salesforce.com', 'dropbox.com', 'stackexchange.com',
       'stackoverflow.com', 'quora.com', 'medium.com', 'vimeo.com', 'imgur.com',
-      'craigslist.org', 'imdb.com', 'steampowered.com', 'discord.com', 'roblox.com',
-      'duckduckgo.com', 'paypal.com', 'stripe.com', 'shopify.com', 'cloudflare-dns.com',
-      'openai.com', 'anthropic.com', 'claude.ai', 'chatgpt.com', 'adguard.com',
     ];
 
-    const prefixes = [
-      'www', 'api', 'cdn', 'static', 'assets', 'login', 'auth', 'app', 'mail', 'm',
-      'blog', 'docs', 'dev', 'secure', 'cloud', 'status', 'portal', 'account', 'shop', 'pay'
-    ];
-
-    const pool = new Set<string>();
-
-    for (const root of popularRoots) {
-      pool.add(root);
-      for (const p of prefixes) {
-        pool.add(`${p}.${root}`);
-      }
-    }
-
-    // Expand with programmatic top domain patterns up to 100k
-    for (let i = 1; i <= 5000; i++) {
-      for (const root of ['net', 'org', 'com', 'io', 'co', 'info', 'app', 'dev']) {
-        pool.add(`node-${i}.service.${root}`);
-        pool.add(`edge-${i}.cdn.${root}`);
-      }
-    }
-
-    this.domainsPool = Array.from(pool);
+    this.domainsPool = popularRoots;
   }
 
   public getStatus(): PrecacheStatus {
-    return { ...this.status };
+    return {
+      ...this.status,
+      majesticStatus: majesticManager.getStatus(),
+    };
   }
 
   // Recalculates empirical resolution time proof on the fly while pre-caching is running
@@ -1155,6 +1141,8 @@ class DnsPrecacheEngine {
 
   public start(targetTotal: number = 10000, targetServer: string = '192.168.1.1') {
     if (this.status.isRunning) return;
+
+    this.generateDomainsPool();
 
     const activeServer = targetServer?.trim() || '192.168.1.1';
 
